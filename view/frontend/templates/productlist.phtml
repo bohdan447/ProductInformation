@@ -1,0 +1,20 @@
+<?php
+/** @var \Perspective\ProductInformation\ViewModule\ProductsList $viewModel */
+$viewModel = $block->getData('viewModel');
+$filteredProducts = $viewModel->getFilteredProducts();
+?>
+<div class="products-list">
+    <?php if (!empty($filteredProducts)): ?>
+        <ul>
+            <?php foreach ($filteredProducts as $product): ?>
+                <li>
+                    <span>Name: <?php echo $product['name']; ?></span><br>
+                    <span>SKU: <?php echo $product['sku']; ?></span><br>
+                    <span>Price: <?php echo $product['price']; ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No products found.</p>
+    <?php endif; ?>
+</div>
